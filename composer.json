@@ -1,0 +1,14 @@
+{
+    "name": "vendor/php-project3",
+    "description": "Description of project PhpProject3.",
+    "authors": [
+        {
+            "name": "Han",
+            "email": "your@email.here"
+        }
+    ],
+    "require": {
+        "kreait/firebase-php": "^4.17.0",
+        "endroid/qrcode": "2.3.0"
+    }
+}
