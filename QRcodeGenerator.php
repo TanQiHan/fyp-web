@@ -12,11 +12,11 @@ use Kreait\Firebase\Factory;
 use Kreait\Firebase\ServiceAccount;
 ?>
 <html>
-     <script>
-    if ( window.history.replaceState ) {
-        window.history.replaceState( null, null, window.location.href );
-    }
-</script>
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
     <head>
         <meta charset="UTF-8">
         <title></title>
@@ -102,11 +102,12 @@ use Kreait\Firebase\ServiceAccount;
 
                 $newIndex = 1;
                 $existed_index = $database->getReference('Missions')->getChildKeys();
-
-                for ($index = 0; $index < sizeof($existed_index); $index += 1) {
-                    $tempindex = explode("_", $existed_index[$index]);
-                    if ($tempindex[1] == $newIndex) {
-                        $newIndex += 1;
+                for ($y = 0; $y < sizeof($existed_index); $y += 1) {
+                    for ($index = 0; $index < sizeof($existed_index); $index += 1) {
+                        $tempindex = explode("_", $existed_index[$index]);
+                        if ($tempindex[1] == $newIndex) {
+                            $newIndex += 1;
+                        }
                     }
                 }
 

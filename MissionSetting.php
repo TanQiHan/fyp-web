@@ -112,14 +112,18 @@ use Kreait\Firebase\ServiceAccount;
             $database = $firebase->getDatabase();
 
             $newIndex = 1;
-            $existed_index = $database->getReference('Missions')->getChildKeys();
 
-            for ($index = 0; $index < sizeof($existed_index); $index += 1) {
-                $tempindex = explode("_", $existed_index[$index]);
-                if ($tempindex[1] == $newIndex) {
-                    $newIndex += 1;
+            $existed_index = $database->getReference('Missions')->getChildKeys();
+            for ($y = 0; $y < sizeof($existed_index); $y += 1) {
+                for ($index = 0; $index < sizeof($existed_index); $index += 1) {
+                    $tempindex = explode("_", $existed_index[$index]);
+
+                    if ($tempindex[1] == $newIndex) {
+                        $newIndex += 1;
+                    }
                 }
             }
+       
 
             if ($_POST['missionvalue'] !== null) {
                 $mission = $database->getReference("Missions")->getChild("Mission_" . $newIndex)->set([
