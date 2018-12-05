@@ -114,7 +114,8 @@ use Kreait\Firebase\ServiceAccount;
                 $mission = $database->getReference("Missions")->getChild("Mission_" . $newIndex)->set([
                     "mission_Type" => $_SESSION['missiontype'],
                     "mission_Value" => $_POST['startTime'] . "-" . $_POST['endTime'],
-                    "event_mission" => $_POST['startday'] . "/" . $_POST['startmonth'] . "/" . $_POST['startyear'] . "-" . $_POST['endday'] . "/" . $_POST['endmonth'] . "/" . $_POST['endyear']
+                    "event_mission" => $_POST['startday'] . "/" . $_POST['startmonth'] . "/" . $_POST['startyear'] . "-" . $_POST['endday'] . "/" . $_POST['endmonth'] . "/" . $_POST['endyear'],
+                    "QR_ID"=>$codeID
                 ]);
             } else {
                 echo 'invalid date';
